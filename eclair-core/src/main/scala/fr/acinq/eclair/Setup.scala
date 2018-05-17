@@ -108,7 +108,7 @@ class Setup(datadir: File, overrideDefaults: Config = ConfigFactory.empty(), act
       if (chainHash != Block.RegtestGenesisBlock.hash) {
         assert(unspentAddresses.forall(address => !isPay2PubkeyHash(address)), "Make sure that all your UTXOS are segwit UTXOS and not p2pkh (check out our README for more details)")
       }
-      assert(progress > 0.99, "bitcoind should be synchronized")
+      assert(progress > 0.50, "bitcoind should be synchronized")
       // TODO: add a check on bitcoin version?
 
       Bitcoind(bitcoinClient)
